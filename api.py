@@ -5,9 +5,8 @@ URL = "https://pokeapi.co/api/v2/pokemon/"
 
 
 
-def pokedex_request():
-    pkmn_name = input('Name or Pokemon ID ')
-    url_request = URL + pkmn_name
+def pokedex_request(pokemon_value):
+    url_request = URL + pokemon_value
     
     pokemon_json = requests.get(url_request)
     return pokemon_json.json()
