@@ -11,8 +11,8 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     response = pokedex_request()
-    json_response = (json_parse(response))
-    return render_template('index.html', message=json_response)
+    pokemon_data = (json_parse(response))
+    return render_template('index.html', pokemon_data=pokemon_data)
 
 # run the application
 if __name__ == "__main__":
