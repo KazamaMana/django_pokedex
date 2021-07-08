@@ -22,12 +22,14 @@ def json_parse(raw_data):
         "type":'',
         "weight":'',
         "height":'',
-        "moves":''
+        "moves":'',
+        "sprites":''
     }
     pokemon_data['name'] = raw_data['name']
     pokemon_data['type'] = pokemon_type
     pokemon_data['weight'] = raw_data['weight']
     pokemon_data['height'] = raw_data['height']
     pokemon_data['moves'] = random.sample(pokemon_move,4)
+    pokemon_data['sprite'] = raw_data['sprites']['front_default']
     
     return pokemon_data
