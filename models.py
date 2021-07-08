@@ -1,6 +1,6 @@
 import requests
 import json
-
+import random
 URL = "https://pokeapi.co/api/v2/pokemon/"
 
 
@@ -29,6 +29,6 @@ def json_parse(raw_data):
     pokemon_data['type'] = pokemon_type
     pokemon_data['weight'] = raw_data['weight']
     pokemon_data['height'] = raw_data['height']
-    pokemon_data['moves'] = pokemon_move
+    pokemon_data['moves'] = random.sample(pokemon_move,4)
     
     return pokemon_data
