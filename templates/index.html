@@ -3,6 +3,10 @@
   <head>
     <title>Flask Shop</title>
   </head>
+  <form action="/post_field" method="post">
+    <input  name="pokemon_value" value="value1" />
+    <input type="submit" value="Press Me!"/>
+    </form>
   <body>
     <h1>{{pokemon_data['name']}}</h1>
     <h1>{{pokemon_data['type']}}</h1>
