@@ -27,11 +27,14 @@
     .even{background-color:silver;}
     </style>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><p style="background-color:Tomato;">{{pokemon_data['type']}}</p></li>
+    <li class="list-group-item"><p>{{pokemon_data['type']}}</p></li>
     <li class="even"><p>{{pokemon_data['weight']}} kg</p></li>
     <li class="uneven"><p>{{pokemon_data['height']}} cm </p></li>
-    <li class="list-group-item"><p style="background-color:silver;">Moves:</p>
-      {{pokemon_data['moves']}}</li>
+    <li class="even"><p>Moves:</p></li>
+    {% for move in pokemon_data['moves'] %}
+    <li class="uneven">
+      {{move}}</li>
+      {% endfor %}
   </ul>
 </div>
 </body>
