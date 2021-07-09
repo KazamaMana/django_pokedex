@@ -9,6 +9,12 @@ URL = "https://pokeapi.co/api/v2/pokemon/"
 def pokedex_request(pokemon_value):
     url_request = URL + pokemon_value
     pokemon_json = dict()
+    pokemon_json['name'] = ''
+    pokemon_json['type'] = ''
+    pokemon_json['weight'] = ''
+    pokemon_json['height'] = ''
+    pokemon_json['moves'] = ''
+    pokemon_json['sprite'] = ''
     pokemon_response = requests.get(url_request)
     print(pokemon_response.status_code)
     if pokemon_response.status_code == 200:
@@ -18,12 +24,7 @@ def pokedex_request(pokemon_value):
     else:
         pokemon_json['message'] = "Pokemon not found"
         pokemon_json['status_code'] = pokemon_response.status_code
-        pokemon_json['name'] = ''
-        pokemon_json['type'] = ''
-        pokemon_json['weight'] = ''
-        pokemon_json['height'] = ''
-        pokemon_json['moves'] = ''
-        pokemon_json['sprite'] = ''
+
     return pokemon_json
 
 
