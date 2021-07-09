@@ -1,0 +1,38 @@
+:root {
+    --main-bg-color: rgba(243, 235, 235, 0.993);
+}
+
+.card {
+    background-color: white;
+    width: 326px;
+    border-radius: 16px;
+    overflow: hidden;
+    -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.card-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-bottom: 1px solid rgba(153, 153, 153, 0.383);
+}
+
+.card-body-img {
+    border: 5px solid white;
+    border-radius: 50%;
+    margin-top: calc(-48px - 5px);
+    background-color: white;
+}
+
+.card-body-title {
+    margin-top: 2rem;
+    font-size: 1.8rem;
+}
