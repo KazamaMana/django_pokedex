@@ -6,6 +6,7 @@ from flask import render_template
 from flask_bootstrap import Bootstrap
 from flask import abort
 
+DEFAULT_POKEMON = "zigzagoon"
 app = Flask(__name__)
 # creates a Flask application, named app
 def create_app():
@@ -22,7 +23,10 @@ def hello():
 
 @app.route("/pokedex", methods=["GET", "POST"])
 def pokedex_card_view():
-    form_value = request.form['pokemon_value']
+    try:
+        form_value = request.form['pokemon_value']
+    except Exception as error:
+        form_value =  DEFAULT_POKEMON
     response = pokedex_request(form_value)
     if response['status_code'] == 200:
         try:
@@ -37,5 +41,5 @@ def pokedex_card_view():
 
 # run the application
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="198.74.52.113",port=4000)
     
