@@ -45,7 +45,7 @@ def json_parse(raw_data):
     pokemon_data['type'] = pokemon_type.capitalize()
     pokemon_data['weight'] = raw_data['weight']/10
     pokemon_data['height'] = raw_data['height']*10
-    pokemon_data['moves'] = ','.join(pokemon_move)
+    pokemon_data['moves'] = pokemon_move
     pokemon_data['sprite'] = raw_data['sprites']['front_default']
     
     return pokemon_data
