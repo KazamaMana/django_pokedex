@@ -4,28 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
-    <link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap.min.css') }}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap.min.css') }}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
 
   <center>
   <form action="/post_field" method="post">
-    <input  name="pokemon_value" placeholder="Enter ID or Name" />
+    <input name="pokemon_value" placeholder="Enter ID or Name" />
     <input type="submit" value="Search"/>
     </form>
 
 
 <body>
-<div class="card" style="width: 12rem;">
+<div class="card" style="width: 10rem;">
   <img class="card-img-top" src="{{pokemon_data['sprite']}}" alt="Sprite">
   <div class="card-body">
     <h5 class="card-title">{{pokemon_data['name']}}</h5>
   </div>
+  <style>
+    .uneven{background-color:white;}
+    .even{background-color:silver;}
+    </style>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{pokemon_data['type']}}</li>
-    <li class="list-group-item">{{pokemon_data['weight']}}</li>
-    <li class="list-group-item">{{pokemon_data['height']}}</li>
-    <li class="list-group-item">{{pokemon_data['moves']}}</li>
+    <li class="list-group-item"><p style="background-color:Tomato;">{{pokemon_data['type']}}</p></li>
+    <li class="even"><p>{{pokemon_data['weight']}} kg</p></li>
+    <li class="uneven"><p>{{pokemon_data['height']}} cm </p></li>
+    <li class="list-group-item"><p style="background-color:silver;">Moves:</p>
+      {{pokemon_data['moves']}}</li>
   </ul>
 </div>
 </body>
