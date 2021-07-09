@@ -20,13 +20,17 @@ def hello():
     return render_template('index.html', pokemon_data="")
 
 
-@app.route("/post_field", methods=["GET", "POST"])
-def need_input():
+@app.route("/pokedex", methods=["GET", "POST"])
+def pokedex_card_view():
     form_value = request.form['pokemon_value']
     response = pokedex_request(form_value)
     if response['status_code'] == 200:
-        pokemon_data = (json_parse(response))
-        return render_template('index.html', pokemon_data=pokemon_data,error_message="")
+        try:
+            
+            pokemon_data = (json_parse(response))
+            return render_template('index.html', pokemon_data=pokemon_data,error_message="")
+        except Exception as error:
+            return render_template('index.html', pokemon_data=response,error_message="Pokemon Data is not fully updated!")
     else:
         return render_template('index.html',error_message=response['message'],pokemon_data=response)
 
