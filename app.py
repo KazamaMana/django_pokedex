@@ -3,9 +3,15 @@ from api import pokedex_request
 from api import json_parse
 from flask import Flask, request
 from flask import render_template
+from flask_bootstrap import Bootstrap
 
-# creates a Flask application, named app
 app = Flask(__name__)
+# creates a Flask application, named app
+def create_app():
+    app = Flask(__name__)
+    Bootstrap(app)
+    
+    return app
 
 # a route where we will display a welcome message via an HTML template
 @app.route("/")
