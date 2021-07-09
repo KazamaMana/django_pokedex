@@ -1,19 +1,33 @@
 <!-- templates/index.html -->
 <html>
   <head>
-    <title>Flask Shop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap.min.css') }}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
   </head>
+
+  <center>
   <form action="/post_field" method="post">
-    <input  name="pokemon_value" value="value1" />
-    <input type="submit" value="Press Me!"/>
+    <input  name="pokemon_value" placeholder="Enter ID or Name" />
+    <input type="submit" value="Search"/>
     </form>
-  <body>
-    <h1>{{pokemon_data['name']}}</h1>
-    <h1>{{pokemon_data['type']}}</h1>
-    <h1>{{pokemon_data['weight']}}</h1>
-    <h1>{{pokemon_data['height']}}</h1>
-    <h1>{{pokemon_data['moves']}}</h1>
-    <img src="{{pokemon_data['sprite']}}">
-    
-  </body>
+
+
+<body>
+<div class="card" style="width: 12rem;">
+  <img class="card-img-top" src="{{pokemon_data['sprite']}}" alt="Sprite">
+  <div class="card-body">
+    <h5 class="card-title">{{pokemon_data['name']}}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{pokemon_data['type']}}</li>
+    <li class="list-group-item">{{pokemon_data['weight']}}</li>
+    <li class="list-group-item">{{pokemon_data['height']}}</li>
+    <li class="list-group-item">{{pokemon_data['moves']}}</li>
+  </ul>
+</div>
+</body>
+</center>
 </html>
