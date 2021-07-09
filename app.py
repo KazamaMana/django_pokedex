@@ -4,6 +4,7 @@ from api import json_parse
 from flask import Flask, request
 from flask import render_template
 from flask_bootstrap import Bootstrap
+from flask import abort
 
 app = Flask(__name__)
 # creates a Flask application, named app
@@ -18,12 +19,17 @@ def create_app():
 def hello():
     return render_template('index.html', pokemon_data="")
 
+
 @app.route("/post_field", methods=["GET", "POST"])
 def need_input():
     form_value = request.form['pokemon_value']
     response = pokedex_request(form_value)
-    pokemon_data = (json_parse(response))
-    return render_template('index.html', pokemon_data=pokemon_data)
+    if response['status_code'] == 200:
+        pokemon_data = (json_parse(response))
+        return render_template('index.html', pokemon_data=pokemon_data,error_message="")
+    else:
+        return render_template('index.html',error_message=response['message'],pokemon_data=response)
+
 
 # run the application
 if __name__ == "__main__":
