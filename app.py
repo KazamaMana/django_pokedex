@@ -6,6 +6,7 @@ from flask import render_template
 from flask_bootstrap import Bootstrap
 from flask import abort
 
+
 app = Flask(__name__)
 # creates a Flask application, named app
 def create_app():
@@ -35,7 +36,8 @@ def pokedex_card_view():
         return render_template('index.html',error_message=response['message'],pokemon_data=response)
 
 
+
 # run the application
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,port=8888,host="0.0.0.0")
     
